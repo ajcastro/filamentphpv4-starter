@@ -24,6 +24,7 @@ use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Facades\Auth;
 
 class UserResource extends Resource
 {
@@ -85,7 +86,8 @@ class UserResource extends Resource
             ])
             ->recordActions([
                 EditAction::make(),
-                DeleteAction::make(),
+                DeleteAction::make()
+                    ->disabled(fn(User $record) => $record->is(Auth::user())),
                 ForceDeleteAction::make(),
                 RestoreAction::make(),
                 Action::make('resetPassword')

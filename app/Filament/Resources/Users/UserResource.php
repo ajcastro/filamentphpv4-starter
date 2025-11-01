@@ -47,7 +47,9 @@ class UserResource extends Resource
                     ->disabled(),
                 TextInput::make('password')
                     ->password()
-                    ->required(),
+                    ->revealable()
+                    ->required(fn(string $context) => $context === 'create')
+                    ->visible(fn(string $context) => $context === 'create'),
             ]);
     }
 

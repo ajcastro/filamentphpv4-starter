@@ -40,6 +40,16 @@ class AppServiceProvider extends ServiceProvider
             }
         );
 
+        \Filament\Tables\Table::configureUsing(
+            function (\Filament\Tables\Table $table) {
+                // TODO: Can override these format settings per user preference later
+                // using \Illuminate\Support\Facades\Auth::user()
+                $table->defaultDateDisplayFormat(config('app.date_format'));
+                $table->defaultDateTimeDisplayFormat(config('app.datetime_format'));
+                $table->defaultTimeDisplayFormat(config('app.time_format'));
+            }
+        );
+
         \Filament\Tables\Columns\Column::configureUsing(
             function (\Filament\Tables\Columns\Column $column) {
                 $column->label(

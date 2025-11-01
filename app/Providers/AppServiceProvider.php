@@ -20,6 +20,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        \Filament\Actions\Action::configureUsing(
+            function (\Filament\Actions\Action $action) {
+                $action->label(
+                    fn($action) => Str::of($action->getName())->snake()->replace('_', ' ')->title()
+                );
+            }
+        );
+
+
         \Filament\Forms\Components\Field::configureUsing(
             function (\Filament\Forms\Components\Field $component) {
                 $component->label(

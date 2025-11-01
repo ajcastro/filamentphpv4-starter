@@ -20,6 +20,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        \Filament\Actions\Action::configureUsing(
+            function (\Filament\Actions\Action $action) {
+                $action->label(
+                    fn($action) => Str::of($action->getName())->snake()->replace('_', ' ')->title()
+                );
+            }
+        );
+
+
         \Filament\Forms\Components\Field::configureUsing(
             function (\Filament\Forms\Components\Field $component) {
                 $component->label(
@@ -28,6 +37,16 @@ class AppServiceProvider extends ServiceProvider
                 $component->validationAttribute(
                     fn($component) => Str::lower($component->getLabel())
                 );
+            }
+        );
+
+        \Filament\Tables\Table::configureUsing(
+            function (\Filament\Tables\Table $table) {
+                // TODO: Can override these format settings per user preference later
+                // using \Illuminate\Support\Facades\Auth::user()
+                $table->defaultDateDisplayFormat(config('app.date_format'));
+                $table->defaultDateTimeDisplayFormat(config('app.datetime_format'));
+                $table->defaultTimeDisplayFormat(config('app.time_format'));
             }
         );
 

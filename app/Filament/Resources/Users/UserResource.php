@@ -5,6 +5,7 @@ namespace App\Filament\Resources\Users;
 use App\Filament\Resources\Users\Pages\ManageUsers;
 use App\Models\User;
 use BackedEnum;
+use Filament\Actions\Action;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteAction;
 use Filament\Actions\DeleteBulkAction;
@@ -28,7 +29,7 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static string|BackedEnum|null $navigationIcon = Heroicon::Users;
 
     protected static ?string $recordTitleAttribute = 'name';
 
@@ -39,7 +40,7 @@ class UserResource extends Resource
                 TextInput::make('name')
                     ->required(),
                 TextInput::make('email')
-                    ->label('Email address')
+                    ->label('Email')
                     ->email()
                     ->required(),
                 DateTimePicker::make('email_verified_at')
@@ -47,7 +48,9 @@ class UserResource extends Resource
                     ->disabled(),
                 TextInput::make('password')
                     ->password()
-                    ->required(),
+                    ->revealable()
+                    ->required(fn(string $context) => $context === 'create')
+                    ->visible(fn(string $context) => $context === 'create'),
             ]);
     }
 
@@ -59,7 +62,7 @@ class UserResource extends Resource
                 TextColumn::make('name')
                     ->searchable(),
                 TextColumn::make('email')
-                    ->label('Email address')
+                    ->label('Email')
                     ->searchable(),
                 TextColumn::make('email_verified_at')
                     ->dateTime()
@@ -85,6 +88,20 @@ class UserResource extends Resource
                 DeleteAction::make(),
                 ForceDeleteAction::make(),
                 RestoreAction::make(),
+                Action::make('resetPassword')
+                    ->icon(Heroicon::LockClosed)
+                    ->schema([
+                        TextInput::make('password')
+                            ->label('New Password')
+                            ->required()
+                            ->default(fn() => \Illuminate\Support\Str::random(8)),
+                    ])
+                    ->action(
+                        function (User $record, array $data) {
+                            $record->password = $data['password'];
+                            $record->save();
+                        }
+                    ),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([

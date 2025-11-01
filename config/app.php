@@ -15,6 +15,10 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'date_format' => 'm/d/Y',
+    'datetime_format' => 'm/d/Y h:i A',
+    'time_format' => 'h:i A',
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

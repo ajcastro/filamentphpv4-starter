@@ -16,6 +16,7 @@ use Filament\Actions\RestoreAction;
 use Filament\Actions\RestoreBulkAction;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
@@ -102,6 +103,11 @@ class UserResource extends Resource
                         function (User $record, array $data) {
                             $record->password = $data['password'];
                             $record->save();
+
+                            Notification::make()
+                                ->title('Password reset successfully')
+                                ->success()
+                                ->send();
                         }
                     ),
             ])

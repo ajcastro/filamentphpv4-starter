@@ -25,4 +25,4 @@ See also `App\Providers\AppServiceProvider`.
 4. Run `php artisan key:generate`.
 4. Run `php artisan migrate --seed`.
 5. Run `npm run dev`.
-6. Login to http://filamentphpv4-starter.test/login. Check `Database\Seeders\DatabaseSeeder` and `Database\Factories\UserFactory` for credentials.
+6. Login to http://filamentphpv4-starter.test/login. Check `Database\Seeders\DatabaseSeeder`for credentials.

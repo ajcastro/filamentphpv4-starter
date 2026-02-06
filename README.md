@@ -24,4 +24,5 @@ See also `App\Providers\AppServiceProvider`.
 3. Duplicate `.env.example` and set `DB_DATABASE`.
 4. Run `php artisan key:generate`.
 4. Run `php artisan migrate --seed`.
-5. Login to http://filamentphpv4-starter.test/login. Check `Database\Seeders\DatabaseSeeder` and `Database\Factories\UserFactory` for credentials.
+5. Run `npm run dev`.
+6. Login to http://filamentphpv4-starter.test/login. Check `Database\Seeders\DatabaseSeeder` and `Database\Factories\UserFactory` for credentials.

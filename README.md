@@ -17,14 +17,13 @@ This is a starter kit for your next FilamentPHP v4 project.
 
 See also `App\Providers\AppServiceProvider`.
 
-## Local Setup
+## Installation
 
 1. Clone repository `git clone git@github.com:ajcastro/filamentphpv4-starter.git project_name`.
 2. Run `composer install` and `npm install`.
-3. Run `composer update laravel/framework` to update Laravel framework.
-4. Run `composer update` to update dependencies.
-5. Duplicate `.env.example` and set `DB_DATABASE`.
-6. Run `php artisan key:generate`.
-7. Run `php artisan migrate --seed`.
-8. Run `npm run dev`.
-9. Login to `http://project_name.test/login`. Check `Database\Seeders\DatabaseSeeder`for credentials.
+3. Run `composer update` to update dependencies.
+4. Duplicate `.env.example` and set `DB_DATABASE`.
+5. Run `php artisan key:generate`.
+6. Run `php artisan migrate --seed`.
+7. Run `npm run build` for production or `npm run dev` for development.
+8. Login to `http://project_name.test/login`. Check `Database\Seeders\DatabaseSeeder`for credentials.

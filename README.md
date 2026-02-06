@@ -1,6 +1,6 @@
 # FilamentPHP v4 Starter
 
-This is a starter kit for your next FilamentPHP v4.
+This is a starter kit for your next FilamentPHP v4 project.
 
 
 ## Added Features

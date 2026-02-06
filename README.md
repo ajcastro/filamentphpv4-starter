@@ -19,10 +19,10 @@ See also `App\Providers\AppServiceProvider`.
 
 ## Local Setup
 
-1. Clone repository `git clone git@github.com:ajcastro/filamentphpv4-starter.git`.
+1. Clone repository `git clone git@github.com:ajcastro/filamentphpv4-starter.git project_name`.
 2. Run `composer install` and `npm install`.
 3. Duplicate `.env.example` and set `DB_DATABASE`.
 4. Run `php artisan key:generate`.
 4. Run `php artisan migrate --seed`.
 5. Run `npm run dev`.
-6. Login to http://filamentphpv4-starter.test/login. Check `Database\Seeders\DatabaseSeeder`for credentials.
+6. Login to http://project_name.test/login. Check `Database\Seeders\DatabaseSeeder`for credentials.

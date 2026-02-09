@@ -13,6 +13,7 @@ This is a starter kit for your next FilamentPHP v4 project.
 6. Configured default datetime display format from `config('app.datetime_format')`
 7. Users CRUD with reset password.
 8. Enabled tailwind classes by adding admin theme.css (see [commit](https://github.com/ajcastro/filamentphpv4-starter/commit/3b50df74ec81ca9024cd767762213b46f3186632))
+9. Simple Tenancy setup in `tenancy` branch.
 
 
 See also `App\Providers\AppServiceProvider`.

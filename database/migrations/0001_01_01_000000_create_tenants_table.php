@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('logo')->nullable();
-            $table->unsignedInteger('number_of_employees')->default(0);
             $table->uuid('created_by')->nullable();
             $table->uuid('updated_by')->nullable();
             $table->uuid('deleted_by')->nullable();

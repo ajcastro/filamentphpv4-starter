@@ -73,7 +73,7 @@ class AdminPanelProvider extends PanelProvider
                         Provider::make('google')
                             ->label('Google')
                             ->icon('fab-google')
-                            ->color(Color::hex('#2f2a6b'))
+                            ->color(Color::Red)
                             ->outlined(false)
                             ->stateless(false)
                             ->scopes([
@@ -93,7 +93,7 @@ class AdminPanelProvider extends PanelProvider
                         Provider::make('facebook')
                             ->label('Facebook')
                             ->icon('fab-facebook')
-                            ->color(Color::hex('#1877F2'))
+                            ->color(Color::Blue)
                             ->outlined(false)
                             ->stateless(false)
                             ->scopes([

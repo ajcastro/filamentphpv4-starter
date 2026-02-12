@@ -1,9 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 use App\Models\Tenant;
 use Illuminate\Support\Facades\Auth;
-
-declare(strict_types=1);
 
 if (! function_exists('tenant')) {
     function tenant(): Tenant

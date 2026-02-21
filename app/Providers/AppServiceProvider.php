@@ -23,7 +23,13 @@ class AppServiceProvider extends ServiceProvider
         \Filament\Actions\Action::configureUsing(
             function (\Filament\Actions\Action $action) {
                 $action->label(
-                    fn($action) => Str::of($action->getName())->snake()->replace('_', ' ')->title()
+                    fn($action) => Str::of($action->getName())->snake(' ')->title()
+                );
+
+                $action->modelLabel(
+                    fn($action) => Str::of(class_basename($action->getLivewire()->getResource()::getModel()))
+                        ->snake(' ')
+                        ->title(),
                 );
             }
         );

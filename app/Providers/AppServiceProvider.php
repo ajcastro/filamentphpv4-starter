@@ -38,10 +38,10 @@ class AppServiceProvider extends ServiceProvider
         \Filament\Forms\Components\Field::configureUsing(
             function (\Filament\Forms\Components\Field $component) {
                 $component->label(
-                    fn($component) => Str::title(str_replace('_', ' ', $component->getName()))
+                    fn($component) => Str::of($component->getName())->snake(' ')->replace('_', ' ')->title()
                 );
                 $component->validationAttribute(
-                    fn($component) => Str::lower($component->getLabel())
+                    fn($component) => Str::of($component->getLabel())->lower()
                 );
             }
         );
